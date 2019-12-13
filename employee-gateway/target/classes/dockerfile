@@ -1,0 +1,4 @@
+FROM openjdk:8-jdk-alpine
+COPY employee-gateway-0.0.1-SNAPSHOT.jar employee-gateway-0.0.1-SNAPSHOT.jar
+#ENV JVM_OPTIONS = "-Dserver.port=9090 -Dspring.profies.active=dev"
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dendpoint.employee-service=http://localhost:9090", "-jar","/employee-gateway-0.0.1-SNAPSHOT.jar"] 
